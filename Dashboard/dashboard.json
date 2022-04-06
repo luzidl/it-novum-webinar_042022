@@ -1,0 +1,121 @@
+{
+  "title": "",
+  "version": "2.0",
+  "settings": {
+    "pagenumber": 0,
+    "editable": true,
+    "fullscreenEnabled": true,
+    "parameters": {
+      "neodash_chapter_cityname": "Palma de Mallorca"
+    }
+  },
+  "pages": [
+    {
+      "title": "E-Laden Tarife",
+      "reports": [
+        {
+          "title": "Statistiken",
+          "query": "# Ladesäulen Statistiken:\n\n\n",
+          "width": "3",
+          "type": "text",
+          "height": "1.25",
+          "selection": {},
+          "settings": {}
+        },
+        {
+          "title": "Anzahl Tarife",
+          "query": "MATCH (t:Tarif)\nRETURN count(DISTINCT t.nameTarif);\n\n\n",
+          "width": "3",
+          "type": "value",
+          "height": "1.25",
+          "selection": {},
+          "settings": {
+            "textAlign": "center",
+            "verticalAlign": "middle"
+          }
+        },
+        {
+          "title": "Anzahl Anbieter",
+          "query": "MATCH (an:Anbieter)\nRETURN count(DISTINCT an.nameAnbieter);\n\n\n",
+          "width": "3",
+          "type": "value",
+          "height": "1.25",
+          "selection": {},
+          "settings": {
+            "textAlign": "center",
+            "verticalAlign": "middle"
+          }
+        },
+        {
+          "title": "Anzahl Ladesäulen",
+          "query": "MATCH (ls:Ladesaeule)\nRETURN count(ls);\n\n\n",
+          "width": "3",
+          "type": "value",
+          "height": "1.25",
+          "selection": {},
+          "settings": {
+            "textAlign": "center",
+            "verticalAlign": "middle"
+          }
+        },
+        {
+          "title": "Ladesäulennetz",
+          "query": "MATCH (ls:Ladesaeule)\nRETURN ls;\n\n\n",
+          "width": "6",
+          "type": "map",
+          "height": "6",
+          "selection": {
+            "Ladesaeule": "(no label)"
+          },
+          "settings": {
+            "nodeColorScheme": "neodash"
+          }
+        },
+        {
+          "title": "Anbieter & Preise in Deutschland",
+          "query": "MATCH (an:Anbieter)-[]-(t:Tarif)\nRETURN DISTINCT an.nameAnbieter AS Anbieter, t.nameTarif AS Tarif, t.kwPreisAC AS `Kosten AC in D`, t.kwPreisDC AS `Kosten DC in D`;\n\n\n",
+          "width": "6",
+          "type": "table",
+          "height": "6",
+          "selection": {},
+          "settings": {}
+        },
+        {
+          "title": "Verfügbare Tarife pro Land",
+          "query": "MATCH (l:Land), (t:Tarif)\nWHERE size(l.laender) > 10\nUNWIND l.laender AS laender\nMATCH (t:Tarif)-[]-(tl:Land)\nWHERE laender IN tl.laender\nRETURN laender AS Länder, count(tl) AS Tarifanzahl;\n\n\n",
+          "width": "4",
+          "type": "pie",
+          "height": "3",
+          "selection": {
+            "index": "Länder",
+            "value": "Tarifanzahl",
+            "key": "(none)"
+          },
+          "settings": {
+            "innerRadius": 0.3,
+            "borderWidth": 0,
+            "padAngle": 3
+          }
+        },
+        {
+          "title": "TOP 5 günstigste Anbieter in Deutschland",
+          "query": "MATCH (an:Anbieter)-[]-(t:Tarif)\nRETURN an.nameAnbieter AS Anbieter, t.kwPreisAC AS `Preis AC`, t.kwPreisDC AS `Preis DC` ORDER BY t.kwPreisAC ASC LIMIT 5;\n\n\n",
+          "width": "4",
+          "type": "table",
+          "height": "3",
+          "selection": {},
+          "settings": {}
+        },
+        {
+          "title": "TOP 5 günstigste Roaming Anbieter",
+          "query": "MATCH (an:Anbieter)-[]-(t:Tarif)-[]-(l:Land)\nWHERE size(l.laender) > 1\nRETURN an.nameAnbieter AS Anbieter, t.rkwPreisAC AS `Roaming Preis AC`, t.kwPreisDC AS `Roaming Preis DC` ORDER BY t.rkwPreisAC ASC LIMIT 5;\n\n\n",
+          "width": "4",
+          "type": "table",
+          "height": "3",
+          "selection": {},
+          "settings": {}
+        }
+      ]
+    }
+  ]
+}
