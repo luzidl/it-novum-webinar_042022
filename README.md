@@ -1,7 +1,8 @@
-# it-novum-webinar_042022
-Demo Data und Skripte vom IT Novum Seminar - Ich sehe was, was du nicht siehst - Graph Datenbanken
+# IT-Novum Webinar 7. April 2022 Demo
 
-Verzeichnisse:
+Demo Daten und Skripte vom IT Novum Seminar - Ich sehe was, was du nicht siehst - Graph Datenbanken
+
+### Verzeichnisse:
 
 Daten --> Enthält die Anbieter Daten und die Daten für die Ladesäulen. Die Daten für die Ladesäulen sind generiert, drum teilweise über die Welt verstreut. Sie dienen nur, um die Nutzung von Geo-Koordinaten zu zeigen.
 
@@ -9,7 +10,7 @@ Skripte --> Enthält das Loading Skript und die Queries, welche die Fragen des i
 
 Dashboard --> NeoDash Dashboard welche im Webinar gezeigt wurde. Das Dashboard kann über die Import Funktion in [NeoDash](https://neo4j.com/developer-blog/neodash-2-0-a-brand-new-way-to-visualize-neo4j) importiert und genutzt werden.
 
-## Vorgehen, um die Demo vom Webinar nachzustellen
+### Vorgehen, um die Demo vom Webinar nachzustellen
 
 1. Installiere [Neo4j Desktop](https://neo4j.com/download/) oder nutze unseren freien SaaS Service [AuraDB Free](https://neo4j.com/cloud/aura/?ref=get-started-dropdown-cta)
 2. Weiteres Vorgehen mit Neo4j Desktop -- > Lege ein Projekt und darin eine leere Datenbank an. Den Namen kannst du frei wählen.
