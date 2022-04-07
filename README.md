@@ -10,6 +10,8 @@ Skripte --> Enthält das Loading Skript und die Queries, welche die Fragen des i
 
 Dashboard --> NeoDash Dashboard welche im Webinar gezeigt wurde. Das Dashboard kann über die Import Funktion in [NeoDash](https://neo4j.com/developer-blog/neodash-2-0-a-brand-new-way-to-visualize-neo4j) importiert und genutzt werden.
 
+Folien --> Enthält die Folien des Vortrags.
+
 ### Vorgehen, um die Demo vom Webinar nachzustellen
 
 1. Installiere [Neo4j Desktop](https://neo4j.com/download/) oder nutze unseren freien SaaS Service [AuraDB Free](https://neo4j.com/cloud/aura/?ref=get-started-dropdown-cta)
